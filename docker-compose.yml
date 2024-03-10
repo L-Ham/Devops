@@ -1,6 +1,6 @@
 version: '3'
 services:
-  Nginx:
+  nginx:
     depends_on:
       - Backend
       - Frontend
@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-  Backend:
+  backend:
     build:
       context: ../Backend
       dockerfile: Dockerfile
@@ -18,7 +18,7 @@ services:
       - "5000:5000"
     volumes:
       - ../Backend:/app/Backend
-  Frontend:
+  frontend:
     build:
       context: ../Frontend
       dockerfile: Dockerfile
