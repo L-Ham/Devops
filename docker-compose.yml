@@ -1,9 +1,29 @@
 version: '3'
 services:
-  nginx:
+  Nginx:
+    depends_on:
+      - backend
+      - frontend
     restart: always
-    build: 
-      context: ./nginx
+    build:
+      context: ./Nginx
       dockerfile: Dockerfile
     ports:
       - "80:80"
+  Backend:
+    build:
+      context: ../Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../Backend:/app/Backend
+  Frontend:
+    build:
+      context: ../Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/Frontend/node_modules
+      - ../Frontend:/app/Frontend
