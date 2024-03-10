@@ -2,8 +2,8 @@ version: '3'
 services:
   nginx:
     depends_on:
-      - Backend
-      - Frontend
+      - backend
+      - frontend
     restart: always
     build:
       context: ./Nginx
