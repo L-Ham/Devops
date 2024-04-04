@@ -14,9 +14,7 @@ services:
     volumes:
       - /etc/ssl/private/:/etc/ssl/private/
   backend:
-    build:
-      context: ../Backend
-      dockerfile: Dockerfile
+    image: mohzakaria/backend
     ports:
       - "5000:5000"
     volumes:
