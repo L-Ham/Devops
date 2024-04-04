@@ -22,9 +22,7 @@ services:
     volumes:
       - ../Backend:/app/Backend
   frontend:
-    build:
-      context: ../Frontend
-      dockerfile: Dockerfile
+    image: mohzakaria/frontend
     ports:
       - "3000:3000"
     volumes:
